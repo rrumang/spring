@@ -16,5 +16,4 @@
 	
 	<!--스프링빈에 스프링빈을 넣기 위한 구조  -->	
 	<context:annotation-config/>
-	
 </beans>
