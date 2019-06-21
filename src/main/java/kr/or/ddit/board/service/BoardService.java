@@ -23,6 +23,9 @@ public class BoardService implements IboardService {
 	
 	@Override
 	public String sayHello() {
+//		for (long i = 0; i < 2000000000; i++) {
+//			i++;
+//		}
 		return boardDao.sayHello();
 	}
 
