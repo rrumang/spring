@@ -16,7 +16,7 @@ public class SpringIocTest {
 	* 변경이력 :
 	* Method 설명 : 스프링 컨테이너 생성 테스트
 	 */
-	@Test
+	@Test	
 	public void springIocTest() {
 		/***Given***/
 		//스프링 컨테이너 생성

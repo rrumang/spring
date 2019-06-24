@@ -25,11 +25,11 @@
 <!-- 		<constructor-arg value="true"/> -->
 <!-- 	</bean> -->
 
-<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
-	<property name="propertyEditorRegistrars">
-		<list>
-			<bean class="kr.or.ddit.typeConvert.CustomDateRegistry"/>
-		</list>
-	</property>
-</bean>
+	<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="propertyEditorRegistrars">
+			<list>
+				<bean class="kr.or.ddit.typeConvert.CustomDateRegistry"/>
+			</list>
+		</property>
+	</bean>
 </beans>

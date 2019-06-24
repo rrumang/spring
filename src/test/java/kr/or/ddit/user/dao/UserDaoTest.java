@@ -68,5 +68,25 @@ public class UserDaoTest extends LogicTestEnv {
 		//useDao.deleteUser(userId);
 		userDao.deleteUser(userVo.getUserId());
 	}
+	
+	/**
+	 * 
+	* Method : getUserTest
+	* 작성자 : PC08
+	* 변경이력 :
+	* Method 설명 :사용자 정보조회 테스트
+	 */
+	@Test
+	public void getUserTest() {
+		/***Given***/
+		String userId ="brown";
+
+		/***When***/
+		UserVo userVo = userDao.getUser(userId);
+
+		/***Then***/
+		assertEquals("브라운", userVo.getName());
+		assertEquals("곰", userVo.getAlias());
+	}
 
 }

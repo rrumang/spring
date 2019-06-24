@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!--id : conversionService(지정된이름)  -->
+	 	<!--id : conversionService(지정된이름)  --> 
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
 	
 	<bean id="formattingVo" class="kr.or.ddit.typeConvert.model.FormattingVo">

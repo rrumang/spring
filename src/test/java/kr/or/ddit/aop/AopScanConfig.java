@@ -9,7 +9,7 @@ import org.springframework.context.annotation.FilterType;
 
 //<context:annotaion-config/> 역할을 @Confiurtation에서 담당
 @Configuration//자바로 만든다는 표시
-@ComponentScan(basePackages = {"kr.or.ddit"},
+@ComponentScan(basePackages = {"kr.or.ddit.board"},
 				includeFilters = @ComponentScan.Filter(type=FilterType.ANNOTATION, value = Aspect.class))
 @EnableAspectJAutoProxy
 public class AopScanConfig {

@@ -13,8 +13,8 @@
 	<!--공통의 관심사항 : profilingAspect - service 클래스의 메소드들이 실행될때 메소드의 시간을 구한다  -->
 	<bean id="profilingAspect" class="kr.or.ddit.aop.profilingAspect"/>
 	
-	<!--@Controller, @Service, @Repository, @Component 4가지 어노페이견이 붙은 클래스를 스프링빈으로 등록  -->
-	<context:component-scan base-package="kr.or.ddit"/>
+	<!--@Controller, @Service, @Repository, @Component 4가지 어노테이션이 붙은 클래스를 스프링빈으로 등록  -->
+	<context:component-scan base-package="kr.or.ddit.board"/>
 	<context:annotation-config/>
 	
 	<aop:config>
