@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.testenv.LogicTestEnv;
 import kr.or.ddit.user.model.UserVo;
 
@@ -88,5 +89,71 @@ public class UserDaoTest extends LogicTestEnv {
 		assertEquals("브라운", userVo.getName());
 		assertEquals("곰", userVo.getAlias());
 	}
+	
+	
+	/**
+	 * 
+	* Method : updateUser
+	* 작성자 : PC08
+	* 변경이력 :
+	* @param vo
+	* @return
+	* Method 설명 : 사용자 정보 수정
+	 */
+	@Test
+	public void updateUserTest() throws ParseException {
+		/***Given***/
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		UserVo userVo = new UserVo("대덕쓰", "brown",  "중앙쓰", "userTest1234", "영민쓰", "204호", "34940", sdf.parse("2019-05-31"));
+
+		/***When***/
+		int updateCnt = userDao.updateUser(userVo);
+
+		/***Then***/
+		assertEquals(1, updateCnt);
+	}
+	
+	/**
+	 * 
+	* Method : usersCnt
+	* 작성자 : PC08
+	* 변경이력 :
+	* @return
+	* Method 설명 :사용자 전체수 조회
+	 */
+	@Test
+	public void usersCntTest() {
+		/***Given***/
+		/***When***/
+		int userCnt = userDao.usersCnt();
+
+		/***Then***/
+		assertEquals(112, userCnt);
+	}
+	
+	/**
+	 * 
+	* Method : userPagingListTest
+	* 작성자 : PC08
+	* 변경이력 :
+	* Method 설명 : 사용자 페이징 리스트 조회
+	 */
+	@Test
+	public void userPagingListTest() {
+		/***Given***/
+		PageVo pageVo = new PageVo(1,10);
+
+		/***When***/
+		List<UserVo> userList = userDao.userPagingList(pageVo);
+
+		/***Then***/
+		assertNotNull(userList);
+		assertEquals(10, userList.size());
+	}
+	
+	
+	
+	
 
 }
