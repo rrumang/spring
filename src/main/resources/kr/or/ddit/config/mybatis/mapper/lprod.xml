@@ -18,11 +18,11 @@
   		<![CDATA[
 		select *
 		 from
-		(select b.*, rownum rn
+		(select a.*, rownum rn
 		 from 
-		(select *
+		(select a.*
 		 from lprod a
-		 order by lprod_id) b  )
+		 order by lprod_id) a  )
 		 where rn >= (#{page}-1)*#{pageSize} +1 and rn <= #{page}*#{pageSize}
 		]]>
   	</select>
