@@ -3,6 +3,8 @@ package kr.or.ddit.main.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.or.ddit.main.model.MainVo;
 import kr.or.ddit.user.model.UserVo;
 
 /*
@@ -145,6 +149,39 @@ public class MainController {
 	@RequestMapping("/main/header")
 	public String header(@RequestHeader(name = "Accept"/*, required = false*/) String accept) {
 		logger.debug("Accept : {}", accept);
+		return "main";
+	}
+	
+	@RequestMapping("/main/view")
+	public String view() {
+		return "view";
+	}
+	
+	@RequestMapping("/main/process")
+	public String process(HttpServletRequest request, String[] userId, //파라미터 이름과 일치하면 바인딩되어 가져올수 있다
+							@RequestParam("userId") List<String> userIdList, //파라미터명이 다르면 리퀘스트파람을 이용하여 가져올수있다
+							@RequestParam("name") List<String> name, //List<>타입의 경우 @RequestParam 적용해야 한다
+							MainVo mainVo) { //vo안에서도 필드명이 동일하면 가져올 수 있다
+		
+		String[] userIdArr = request.getParameterValues("userId");
+		
+		String userIdParameter = request.getParameter("userId");
+		logger.debug("userIdParameter : {}", userIdParameter);
+		
+		logger.debug("request.getParameterValues(\"userId\")");
+		for(String u : userIdArr) 
+			logger.debug("userId : {}", u);
+		
+		logger.debug("String[]userId");
+		for(String u : userId)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("userIdList");
+		for(String u : userIdList)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("mainVo : {}", mainVo);
+		
 		return "main";
 	}
 }
