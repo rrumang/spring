@@ -270,4 +270,6 @@ public class UserControllerTest extends ControllerTestEnv {
 					   .param("pass", "userTest1234"))
 					.andExpect(view().name("redirect:/user/user?userId=brown"));
 	}
+	
+	
 }

@@ -29,6 +29,10 @@
 </style>
 <script>
 	$(document).ready(function(){
+		<c:if test="${not empty msg}">
+        	alert("${msg}");
+     	</c:if>
+	 	
 		$("#modifyBtn").on("click", function(){
 			var userId = $("#userId2").text();
 			$("#userId").val(userId);
@@ -59,7 +63,7 @@
 							<input type="hidden" id="userId" name="userId"/>
 						</form>
 
-						<form class="form-horizontal" role="form">
+						<form  action="${cp }/user/modify" id="frm" method="get" class="form-horizontal" role="form">
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">${vo.path }</label>
