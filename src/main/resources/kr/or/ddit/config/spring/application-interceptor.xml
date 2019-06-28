@@ -6,21 +6,29 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 	
 	<mvc:interceptors>
-		<mvc:interceptor>
-			<!--복수 세그먼트를 받기위해 ** 두개를 써준다  -->
-			<mvc:mapping path="/**"/>
-			<bean id="performanceInterceptor" class="kr.or.ddit.interceptor.PerformanceInterceptor"/>
-		</mvc:interceptor>
+<!-- 		<mvc:interceptor> -->
+ 			<!--복수 세그먼트를 받기위해 ** 두개를 써준다  --> 
+<!-- 			<mvc:mapping path="/**"/> -->
+<!-- 			<bean id="performanceInterceptor" class="kr.or.ddit.interceptor.PerformanceInterceptor"/> -->
+<!-- 		</mvc:interceptor> -->
 		
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/**"/> -->
+<!-- 			<mvc:exclude-mapping path="/login"/> -->
+<!-- 			<mvc:exclude-mapping path="/js/**"/>정적인자료 빼줘야함  -->
+<!-- 			<mvc:exclude-mapping path="/css/**"/>정적인자료 빼줘야함  -->
+<!-- 			<mvc:exclude-mapping path="/img/**"/>정적인자료 빼줘야함  -->
+<!-- 			<mvc:exclude-mapping path="/bootstrap/**"/>정적인자료 빼줘야함  -->
+<!-- 			<mvc:exclude-mapping path="/error/**"/>정적인자료 빼줘야함  -->
+<!-- 			<bean class="kr.or.ddit.interceptor.SessionCheckInterceptor"/> -->
+<!-- 		</mvc:interceptor> -->
+		
+		<!--localeChange Interceptor  -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<mvc:exclude-mapping path="/login"/>
-			<mvc:exclude-mapping path="/js/**"/><!--정적인자료 빼줘야함  -->
-			<mvc:exclude-mapping path="/css/**"/><!--정적인자료 빼줘야함  -->
-			<mvc:exclude-mapping path="/img/**"/><!--정적인자료 빼줘야함  -->
-			<mvc:exclude-mapping path="/bootstrap/**"/><!--정적인자료 빼줘야함  -->
-			<mvc:exclude-mapping path="/error/**"/><!--정적인자료 빼줘야함  -->
-			<bean class="kr.or.ddit.interceptor.SessionCheckInterceptor"/>
+			<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+				<property name="paramName" value="lang"/>
+			</bean>
 		</mvc:interceptor>
 		
 	</mvc:interceptors>
