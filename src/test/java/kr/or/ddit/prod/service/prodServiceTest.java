@@ -35,7 +35,7 @@ public class prodServiceTest extends LogicTestEnv {
 
 		/***When***/
 		Map<String, Object> resultMap = prodService.prodPagingList(pageVo);
-		List<ProdVo> prodList = (List<ProdVo>) resultMap.get("lprodList");
+		List<ProdVo> prodList = (List<ProdVo>) resultMap.get("prodList");
 		int paginationSize = (Integer) resultMap.get("paginationSize");
 
 		/***Then***/
