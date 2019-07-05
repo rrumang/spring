@@ -31,7 +31,7 @@ public class LoginController {
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
 	public String loginView(HttpSession session) {
 		if(session.getAttribute("USER_INFO")!= null)
-			return "main"; // /WEB-INF/views/main.jsp
+			return "tiles.main"; // /WEB-INF/views/main.jsp
 		else
 			return "login/login"; // /WEB-INF/views/login/login.jsp
 	}
@@ -54,7 +54,7 @@ public class LoginController {
 			rememberMeCookie(userId, rememberme, response);
 			
 			session.setAttribute("USER_INFO", userVo);
-			return "main"; // main으로 forward하기
+			return "tiles.main"; // main으로 forward하기
 		}
 		else
 			return "login/login";
