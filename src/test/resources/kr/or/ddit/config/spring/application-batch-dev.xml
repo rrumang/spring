@@ -13,13 +13,13 @@
 		<property name="jobRepository" ref="jobRepository"/>
 	</bean>
 	
-	<bean id="rransactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
+	<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
 	
 	<bean id="rangerItemReader" class="kr.or.ddit.batch.RangerItemReader"/>
-	<bean id="rangerItemProcessor" class="kr.or.ddit.batch.RangerItemReader"/>
-	<bean id="rangerItemWriter" class="kr.or.ddit.batch.RangerItemReader"/>
+	<bean id="rangerItemProcessor" class="kr.or.ddit.batch.RangerItemProcessor"/>
+	<bean id="rangerItemWriter" class="kr.or.ddit.batch.RangerItemWriter"/>
 	
-	<batch:job id="ragerJob">
+	<batch:job id="rangerJob">
 		<batch:step id="step1">
 			<batch:tasklet>
 				<batch:chunk commit-interval="1"
