@@ -31,7 +31,7 @@ public class LogicTestEnv {
 		ResourceDatabasePopulator rdp = new ResourceDatabasePopulator();
 		rdp.setContinueOnError(false);// 에러 발생시 계속 할지 말지 여부
 		rdp.addScript(new ClassPathResource("kr/or/ddit/testenv/dbInit.sql"));
-		
+		rdp.addScript(new ClassPathResource("kr/or/ddit/testenv/dailyInit.sql"));
 		DatabasePopulatorUtils.execute(rdp, datasource);
 	}
 	
