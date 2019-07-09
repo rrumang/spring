@@ -31,7 +31,7 @@ public class SpringLifeCycleTest {
 		assertNotNull(dbInfo.getUsername());
 		assertNotNull(dbInfo.getPassword());
 		assertEquals("oracle.jdbc.driver.OracleDriver", dbInfo.getDriver());
-		assertEquals("jdbc:oracle:thin:@192.168.0.93:1521:xe", dbInfo.getUrl());
+		assertEquals("jdbc:oracle:thin:@localhost:1521:xe", dbInfo.getUrl());
 		assertEquals("pc08", dbInfo.getUsername());
 		assertEquals("java", dbInfo.getPassword());
 	}
